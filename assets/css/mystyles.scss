@@ -4,9 +4,11 @@
 .has-bg-img-bot {
     background: url('../images/tree5.jpg')bottom center; background-size:auto; } 
 
-
 .title {
     font-family: 'Goudy Bookletter 1911', serif;
+}
+h1.title {
+    text-shadow: 2px 2px black;
 }
 
 .radio {
