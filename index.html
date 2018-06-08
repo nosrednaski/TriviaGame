@@ -5,17 +5,41 @@
     <title>&#x1F343 Trivia</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911|Sunflower:300" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/mystyles.scss">
     <link rel="stylesheet" href="./assets/css/style.css">
-    
+
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <script src="./assets/javascript/app.js"></script>
 </head>
 
 <body>
+  <div class="parallax">
+    
+    <div class="bg-img-1"></div>
+      
+    <div class="box has-text-centered">
+          “Whoever has learned how to listen to trees no longer wants to be a tree. He wants to be nothing except what he is. That is home. That is happiness.” <br>
+          ― Herman Hesse
+    </div>
+
+    <div class="bg-img-2"></div>
+      
+    <div id="startButton" class="box has-text-centered">
+      <a class=" button has-text-centered title is-large is-dark is-rounded">Start</a>
+    </div>
+      
+    <div class="bg-img-3"></div>
+      
+      <!-- “Trees do not preach learning and precepts. They preach, undeterred by particulars, the ancient law of life."
+      ― Herman Hesse -->
+      <!-- “You know me, I think there ought to be a big old tree right there. And let's give him a friend. Everybody needs a friend.” 
+      ― Bob Ross  -->
+  </div>
+
     <section class="hero has-bg-img">
             <div class="hero-body">
               <div class="container">
@@ -25,136 +49,147 @@
               </div>
             </div>
           </section>
-          
+
+
     <container id="questions">
         <div class="columns"> 
             <div class="column is-2"></div>
             <div class="column is-full">
                 <div class="tile is-ancestor">
                     <div class="tile is-8    is-vertical">
-                      <div class="tile box">
-                        <p class="title num">One</p>
+
+                      <div class="tile box" id="q1">
+                        <p class="title">One</p>
                         <img src="./assets/images/dogwood.jpg" alt="dogwood leaf">
                         <container class="control">
                             <label class="radio">
-                              <input type="radio" name="answer">
-                                Eastern Hemlock
+                              <input type="radio" name="answer1">
+                                Flowerbud
                             </label>
                             <br><br>
                             <label class="radio">
-                              <input type="radio" name="answer">
+                              <input type="radio" name="answer1">
                                 Mimosa
                             </label>
                             <br><br>
                             <label class="radio">
-                              <input type="radio" name="answer">
+                              <input type="radio" name="answer1" id="q1Correct">
                                 Dogwood
                             </label>
                             <br><br>
                             <label class="radio">
-                              <input type="radio" name="answer">
+                              <input type="radio" name="answer1">
                                 Eastern Redbud
                             </label>
+                            <div id="displayFeedback"></div>
                         </container>
                       </div>
-                      <div class="tile box">
+
+                      <div class="tile box" id="q2">
                         <p class="title">Two</p>
                         <img src="./assets/images/ginkgo.jpg" alt="ginkgo leaf">
-                        <container class="control">
+                        <container class="control" >
                                 <label class="radio">
-                                  <input type="radio" name="answer">
+                                  <input type="radio" name="answer2" id="q2Correct">
                                     Ginkgo
                                 </label>
                                 <br><br>
                                 <label class="radio">
-                                  <input type="radio" name="answer">
+                                  <input type="radio" name="answer2">
                                     Southern Red Oak
                                 </label>
                                 <br><br>
                                 <label class="radio">
-                                  <input type="radio" name="answer">
+                                  <input type="radio" name="answer2">
                                     Fan Maple
                                 </label>
                                 <br><br>
                                 <label class="radio">
-                                  <input type="radio" name="answer">
+                                  <input type="radio" name="answer2">
                                     White Ash
                                 </label>
+                                <div id="displayFeedback"></div>
                             </container>
                       </div>
-                      <div class="tile box">
+
+                      <div class="tile box" id="q3">
                         <p class="title">Three</p>
                         <img src="./assets/images/mimosa.jpg" alt="mimosa leaf">
-                        <container class="control">
+                        <container class="control" >
                                 <label class="radio">
-                                  <input type="radio" name="answer">
+                                  <input type="radio" name="answer3">
                                     Black Walnut
                                 </label>
                                 <br><br>
                                 <label class="radio">
-                                  <input type="radio" name="answer">
+                                  <input type="radio" name="answer3" id="q3Correct">
                                     Mimosa
                                 </label>
                                 <br><br>
                                 <label class="radio">
-                                  <input type="radio" name="answer">
+                                  <input type="radio" name="answer3">
                                     Tree of Heaven
                                 </label>
                                 <br><br>
                                 <label class="radio">
-                                  <input type="radio" name="answer">
+                                  <input type="radio" name="answer3">
                                     Pea Tree
                                 </label>
+                                <div id="displayFeedback"></div>
                             </container>
                       </div>
-                      <div class="tile box">
+
+                      <div class="tile box" id="q4">
                         <p class="title">Four</p>
                         <img src="./assets/images/sycamore.jpg" alt="sycamore leaf">
-                        <container class="control">
+                        <container class="control" >
                                 <label class="radio">
-                                  <input type="radio" name="answer">
+                                  <input type="radio" name="answer4">
                                     Canadian Maple
                                 </label>
                                 <br><br>
                                 <label class="radio">
-                                  <input type="radio" name="answer">
+                                  <input type="radio" name="answer4">
                                     Sweet Gum
                                 </label>
                                 <br><br>
                                 <label class="radio">
-                                  <input type="radio" name="answer">
+                                  <input type="radio" name="answer4">
                                     Sugar Maple
                                 </label>
                                 <br><br>
                                 <label class="radio">
-                                  <input type="radio" name="answer">
+                                  <input type="radio" name="answer4" id="q4Correct">
                                     Sycamore
                                 </label>
+                                <div id="displayFeedback"></div>
                             </container>
                       </div>
-                      <div class="tile box">
+
+                      <div class="tile box" id="q5">
                         <p class="title">Five</p>
                         <img src="./assets/images/treeOfHeaven.jpg" alt="tree of heaven leaf">
-                        <container class="control">
+                        <container class="control" >
                                 <label class="radio">
-                                  <input type="radio" name="answer">
+                                  <input type="radio" name="answer5" id="q5Correct">
                                     Tree of Heaven
                                 </label>
                                 <br><br>
                                 <label class="radio">
-                                  <input type="radio" name="answer">
+                                  <input type="radio" name="answer5">
                                     Elder Willow
                                 </label>
                                 <br><br>
                                 <label class="radio">
-                                  <input type="radio" name="answer">
+                                  <input type="radio" name="answer5">
                                     Dogwood
                                 </label>
                                 <br><br>
                                 <label class="radio">
-                                  <input type="radio" name="answer">
+                                  <input type="radio" name="answer5">
                                     Redwood
                                 </label>
+                                <div id="displayFeedback"></div>
                             </container>
                       </div>
                     </div>
@@ -163,9 +198,8 @@
         </div>
     </container>
 
-    <section class="footer hero has-bg-img-bot">
+    <section class="footer hero has-bg-img-bot"></section>
 
-    </section>
 </body>
 </html>
 

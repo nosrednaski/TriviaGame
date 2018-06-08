@@ -1,17 +1,23 @@
-.has-bg-img { 
-    background: url('../images/tree5.jpg')center center; background-size:auto; }
-
-.has-bg-img-bot {
-    background: url('../images/tree5.jpg')bottom center; background-size:auto; } 
-
-.title {
+body {
     font-family: 'Goudy Bookletter 1911', serif;
 }
+
+.has-bg-img { 
+    background: url('../images/tree5.jpg')center center; background-size:auto;
+ }
+
+.has-bg-img-bot {
+    background: url('../images/tree5.jpg')bottom center; background-size:auto;
+ } 
+
 h1.title {
     text-shadow: 2px 2px black;
 }
 
 .radio {
-    font-family: 'Goudy Bookletter 1911', serif;
     font-size: 2em; 
 }
+
+ .parallax .box {
+     margin-bottom: 0;
+ }
