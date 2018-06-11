@@ -12,10 +12,17 @@ html, body {
     
   }
 
+  progress {
+    position: absolute;
+    z-index: 2;
+    transition: all linear;
+  }
+
   #questions {
     position: relative;
     z-index: 1;
   }
+
   .footer {
     flex-shrink: 0;
   }
