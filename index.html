@@ -49,8 +49,9 @@
               </div>
             </div>
           </section>
-
-    <progress class="progress is-medium is-info" value="" max="45"></progress>
+         
+  <progress class="progress is-medium is-info" value="" max=""></progress>
+   
     <container id="questions">
         <div class="columns"> 
             <div class="column is-2"></div>
@@ -81,7 +82,7 @@
                               <input type="radio" name="answer1" value=false>
                                 Eastern Redbud
                             </label>
-                            
+                           <div class="feedbackDisplay"></div> 
                         </container>
                       </div>
 
@@ -108,7 +109,7 @@
                                   <input type="radio" name="answer2" value=false>
                                     White Ash
                                 </label>
-                                <div ></div>
+                                <div class="feedbackDisplay"></div>
                             </container>
                       </div>
 
@@ -135,7 +136,7 @@
                                   <input type="radio" name="answer3" value=false>
                                     Pea Tree
                                 </label>
-                                <div ></div>
+                                <div class="feedbackDisplay"></div>
                             </container>
                       </div>
 
@@ -162,7 +163,7 @@
                                   <input type="radio" name="answer4" value=true>
                                     Sycamore
                                 </label>
-                                <div ></div>
+                                <div class="feedbackDisplay"></div>
                             </container>
                       </div>
 
@@ -189,23 +190,52 @@
                                   <input type="radio" name="answer5" value=false>
                                     Redwood
                                 </label>
-                                <div ></div>
+                                <div class="feedbackDisplay"></div>
                             </container>
                       </div>
 
-                      <div class="tile box" id="results">
-                          <p class="title">Results</p>
-                          <p id="correctDisplay"></p>
-                          <p id="wrongDisplay"></p>
-                    
-                      </div>
-
+                      <div class="box"> 
+                              <p class="title">Click here to see your results.</p>
+                              <br>
+                              <div id="finishedButton">
+                                  <a class=" button has-text-centered title is-large is-dark is-rounded">Finished</a>
+                                </div>
+                        </div>
                     </div>
                     </div>
                 </div>
             </div>
         </div>
     </container>
+    <container id="results">
+        <div class="level is-mobile">
+            <div class="level-item has-text-centered">
+              <div>
+                  <p class="heading has-bold-text is-size-3">Results</p>
+                  <p class="title" id="gemValue"></p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                  <p class="heading">Correct:</p>
+                  <p class="title" id="correctDisplay"></p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                  <p class="heading">Wrong:</p>
+                  <p class="title" id = "wrongDisplay"></p>
+              </div>
+            </div>
+            
+            <div class="level-item has-text-centered">
+              <div id="resetButton" class="has-text-centered">
+                  <a class=" button has-text-centered title is-large is-dark is-rounded">Reset</a>
+              </div>
+            </div>
+        </div>    
+    </container>
+
 
     <section class="footer hero has-bg-img-bot"></section>
 

@@ -1,19 +1,46 @@
 $(document).ready(function(){
 
-    //    Declare Variables
+    //**************** Variables ****************************
     var correctCount = 0;
     var wrongCount = 0;
-    var countDownFrom = 1;             
-    var intervalId;              
+    var intervalId;
+   
+    // Timer
+    var countDown = {
+        time: 45,
+        start: function() {
+            intervalId = setInterval(countDown.decrement, 1000);
+        },
+        stopAndReset: function() {      
+          clearInterval(intervalId);
+          countDown.time = 45;
+        },
+        decrement: function() {
+          countDown.time--;
+          $(".progress").attr("value",countDown.time);
+          countDown.zeroCheck();
+        },
+        zeroCheck: function() {
+            if (countDown.time === 0) {
+                countDown.stopAndReset();
+                $(".progress").hide(200);
+                $("#questions").hide(1000);
+                $(".footer").hide();
+                $("#results").show(1000);
+            }
+        },
+    };
     
+   
+    //**************************Page Display*************************
     // Hide questions previous to button press
     $("#questions").hide();
     $(".has-bg-img").hide();
     $(".footer").hide();
     $(".progress").hide();
     $("#results").hide();
-    // $(".parallax").hide();
-    // Show first question on button press and hide start button
+   
+    // Show questions on button press and hide start button
     $("#startButton").click(function(){
         $(".parallax").hide(1000);
         $(".progress").show(200);
@@ -21,87 +48,91 @@ $(document).ready(function(){
         $(".has-bg-img").slideDown(1000);
         $(".footer").show(4000);
         // Timer Starts
-        run();
+        countDown.start();
     });
-
-    //Timer Function
-    function run() {
-        clearInterval(intervalId);
-        intervalId = setInterval(decrement, 1000);
-      }
-      console.log(countDownFrom);
-      //  The decrement function.
-      function decrement() {
+    
+    
   
-        //  Decrease number by one.
-        countDownFrom--;
+  //Time displays in the progress bar
   
-        //  Show the number in the #show-number tag.
-        $(".progress").attr("value",countDownFrom);
-  
-  
-        //  Once number hits zero...
-        if (countDownFrom === 0) {
-  
-          //  ...run the stop function.
-          stop();
-  
-          // Show results when time is up
-          $(".progress").hide(200);
-          $("#questions").hide(1000);
-          $(".has-bg-img").hide(1000);
-          $(".footer").hide(1000);
-          $("#results").show(1000);
-        }
-      }
-  
-      //  The stop function
-      function stop() {
-  
-        //  Clears our intervalId
-        //  We just pass the name of the interval
-        //  to the clearInterval function.
-        clearInterval(intervalId);
-      }
-  
-
-      
-
-      //###########################################
-
+  $(".progress").attr("value",countDown.time);
+  $(".progress").attr("max",countDown.time);
     //Page loads with all radios unchecked
     $(":input").prop("checked", false);
 
-    // Click event logic
-    $(":input").on("click",function(){
-        $("#hideIt").hide(200);
-        //Why won't the feedback hide after the first 2 clicks?
+    
+    //************************************ Click events ***********************************
+    $(".control").on("click", ":input", function(){
+        $(".feedbackDisplay").empty();
+        //Why won't the feedback empty after the first 2 clicks?
         if ($(this).val() === "true" ) {
             showCorrect();
-        } 
+            
+        }; 
          if ($(this).val() === "false") {
             showWrong();
-        }
-    }) 
+        };
+        $("#correctDisplay").text(correctCount);
+        $("#wrongDisplay").text(wrongCount);
+        
+    }); 
 
-   //Question: How would you disable all radios just on 1 tile after correct answer is selected?? 
-   
-    //Function for if correct option is selected
     function showCorrect() {
-        $(".control").append("<div id='hideIt' class='feedbackDisplay'>Correct!<div>");
-        $(".feedbackDisplay").attr("class","has-text-success");
         correctCount++; 
-    }
+        $(".feedbackDisplay").append("<div>Correct!<div>");
+        $(".feedbackDisplay").attr("class","has-text-success");
+    };
 
-    //Function for if wrong option is selected
     function showWrong() {
-        $(".control").append("<div id='hideIt' class='feedbackDisplay'>Try Again.<div>");
-        $(".feedbackDisplay").attr("class","has-text-danger");
-        wrongCount++;     
-    }
-
+        wrongCount++; 
+        $(".feedbackDisplay").append("<div>Try Again.<div>");
+        $(".feedbackDisplay").attr("class","has-text-danger");  
+    };
     
+    // Finished Quiz Button
+    $(document).on("click", "#finishedButton", function() {
+        countDown.stopAndReset();
+        $(".progress").hide(200);
+        $("#questions").hide(1000);
+        $(".footer").hide();
+        $("#results").show(1000);
+    });
+
+    // Reset Button
+    $(document).on("click", "#resetButton", function() {
+        correctCount = 0;
+        wrongCount = 0;
+        $("#results").hide();
+        $(".has-bg-img").hide();
+        $(".parallax").show();
+        $(":input").prop("checked", false);
+        $(".feedbackDisplay").empty();
+    });
+
     
 });
+
+
+//List of problems:
+// 1. Timer won't start - FINISHED
+//     Timer won't display - FINISHED
+//      Timer won't stop - FINISHED
+//     -Will timer reset with reset function? - FINISHED
+// 2. Counters don't count. -FINISHED
+//     Counters don't display. -FINISHED
+//     -reset? -FINISHED
+// 3. Feedback only display after first click event.
+//     -will it hide multiple?
+// 4. Need sticky progress bar. -FINSISHED
+// 5. Can I get feedback to only display in one tile at a time?
+// 6. Animate each tile in after the user has found the correct answer for each. 
+//     -Solves #5
+// 7. Display of correct answers with the results. 
+//
+//
+//
+//
+//
+//
 
 
