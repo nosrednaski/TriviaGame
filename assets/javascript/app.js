@@ -47,16 +47,16 @@ $(document).ready(function(){
         $("#questions").slideToggle(1000);
         $(".has-bg-img").slideDown(1000);
         $(".footer").show(4000);
+        window.scrollTo(0, 0);
         // Timer Starts
         countDown.start();
     });
     
     
   
-  //Time displays in the progress bar
-  
-  $(".progress").attr("value",countDown.time);
-  $(".progress").attr("max",countDown.time);
+    //Time displays in the progress bar
+    $(".progress").attr("value",countDown.time);
+    $(".progress").attr("max",countDown.time);
     //Page loads with all radios unchecked
     $(":input").prop("checked", false);
 
@@ -79,14 +79,14 @@ $(document).ready(function(){
 
     function showCorrect() {
         correctCount++; 
-        $(".feedbackDisplay").append("<div>Correct!<div>");
-        $(".feedbackDisplay").attr("class","has-text-success");
+        $(".feedbackDisplay").append("<span class='displaySpan'>Correct!<span>");
+        $(".displaySpan").attr("class","has-text-success");
     };
 
     function showWrong() {
         wrongCount++; 
-        $(".feedbackDisplay").append("<div>Try Again.<div>");
-        $(".feedbackDisplay").attr("class","has-text-danger");  
+        $(".feedbackDisplay").append("<span class='displaySpan'>Try Again.<span>");
+        $(".displaySpan").attr("class","has-text-danger");  
     };
     
     // Finished Quiz Button
@@ -121,8 +121,8 @@ $(document).ready(function(){
 // 2. Counters don't count. -FINISHED
 //     Counters don't display. -FINISHED
 //     -reset? -FINISHED
-// 3. Feedback only display after first click event.
-//     -will it hide multiple?
+// 3. Feedback only display after first click event. -FINISHED
+//     -will it hide multiple? - FINISHED
 // 4. Need sticky progress bar. -FINSISHED
 // 5. Can I get feedback to only display in one tile at a time?
 // 6. Animate each tile in after the user has found the correct answer for each. 
