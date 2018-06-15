@@ -25,6 +25,7 @@ $(document).ready(function(){
                 countDown.stopAndReset();
                 $(".progress").hide(200);
                 $("#questions").hide(1000);
+                $(".has-bg-img").hide(1000);
                 $(".footer").hide();
                 $("#results").show(1000);
             }
@@ -94,6 +95,7 @@ $(document).ready(function(){
         countDown.stopAndReset();
         $(".progress").hide(200);
         $("#questions").hide(1000);
+        $(".has-bg-img").hide(1000);
         $(".footer").hide();
         $("#results").show(1000);
     });
