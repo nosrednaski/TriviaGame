@@ -64,7 +64,7 @@ $(document).ready(function(){
     
     //************************************ Click events ***********************************
     $(".control").on("click", ":input", function(){
-        $(".feedbackDisplay").empty();
+        $(".feedbackDisplay").show(500).hide(1800).empty();
         //Why won't the feedback empty after the first 2 clicks?
         if ($(this).val() === "true" ) {
             showCorrect();
@@ -130,7 +130,7 @@ $(document).ready(function(){
 // 6. Animate each tile in after the user has found the correct answer for each. 
 //     -Solves #5
 // 7. Display of correct answers with the results. 
-//
+// 8. Only count 1 wrong and 1 right per question. Out of 5 total. 
 //
 //
 //
